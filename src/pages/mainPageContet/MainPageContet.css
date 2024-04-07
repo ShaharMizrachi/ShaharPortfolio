@@ -1,0 +1,33 @@
+.profileContainer {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column; /* Ensure items are stacked vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.headLine {
+  color: #73cdc2;
+  font-size: 200%;
+  font-weight: 540;
+}
+
+.seconderyHeadLine {
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+}
+
+.descriptionText {
+  color: azure;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.gif {
+  height: 41vh;
+  width: 37vh;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  margin-top: 5vh;
+}

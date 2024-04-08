@@ -1,14 +1,37 @@
-import React from 'react'
-import './MainPageContet.css'
-import EmptyButton from '../../components/ui/emptyButton/EmptyButton'
-import FullButton from '../../components/ui/fullButton/FullButton'
-import computerGuyGif from '../../assets/computerGuy.gif'
-
-
-
-
+import React, { useState, useEffect } from 'react';
+import './MainPageContet.css';
+import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
+import FullButton from '../../components/ui/fullButton/FullButton';
+import computerGuyGif from '../../assets/computerGuy.gif';
 
 const MainPageContet = () => {
+    const [typedText, setTypedText] = useState('');
+    const textToType = [
+        "Welcome to my portfolio! As a full stack developer with 1.5 years of experience,",
+        "I've built this website using React and TypeScript. Currently seeking new job opportunities,",
+        "I'm eager to join a dynamic team where I can contribute my skills and expertise.",
+        "With a strong work ethic, motivation, and excellent interpersonal skills honed throughout my professional journey,",
+        "I'm committed to delivering high-quality code and thriving in collaborative, cross-functional environments."
+    ];
+    const [textIndex, setTextIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (charIndex < textToType[textIndex].length) {
+                setTypedText(prevText => prevText + textToType[textIndex][charIndex]);
+                setCharIndex(charIndex + 1);
+            } else if (textIndex < textToType.length - 1) {
+                setTextIndex(textIndex + 1);
+                setCharIndex(0);
+            } else {
+                clearInterval(interval);
+            }
+        }, 50); // Adjust typing speed as needed
+
+        return () => clearInterval(interval);
+    }, [typedText, charIndex, textIndex, textToType]);
+
     return (
         <div className='profileContainer'>
             <div className='headLine'>
@@ -18,11 +41,7 @@ const MainPageContet = () => {
                 Full Stack Developer
             </div>
             <div className='descriptionText'>
-                "Welcome to my portfolio! As a full stack developer with 1.5 years of experience,<br />
-                I've built this website using React and TypeScript. Currently seeking new job opportunities,<br />
-                I'm eager to join a dynamic team where I can contribute my skills and expertise.<br />
-                With a strong work ethic, motivation, and excellent interpersonal skills honed throughout my professional journey,<br />
-                I'm committed to delivering high-quality code and thriving in collaborative, cross-functional environments."
+                {typedText}
             </div>
             <div>
                 <EmptyButton name='Download CV' />
@@ -35,4 +54,4 @@ const MainPageContet = () => {
     )
 }
 
-export default MainPageContet
+export default MainPageContet;

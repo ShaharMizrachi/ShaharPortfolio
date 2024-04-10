@@ -15,6 +15,7 @@ const MainPageContet = () => {
     ];
     const [textIndex, setTextIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
+    const [lineBreakNeeded, setLineBreakNeeded] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -24,10 +25,15 @@ const MainPageContet = () => {
             } else if (textIndex < textToType.length - 1) {
                 setTextIndex(textIndex + 1);
                 setCharIndex(0);
+                setLineBreakNeeded(true);
             } else {
                 clearInterval(interval);
             }
-        }, 50); // Adjust typing speed as needed
+        }, 20);
+
+        if (lineBreakNeeded) {
+            setLineBreakNeeded(false);
+        }
 
         return () => clearInterval(interval);
     }, [typedText, charIndex, textIndex, textToType]);
@@ -41,6 +47,7 @@ const MainPageContet = () => {
                 Full Stack Developer
             </div>
             <div className='descriptionText'>
+                {lineBreakNeeded && <br />}
                 {typedText}
             </div>
             <div>

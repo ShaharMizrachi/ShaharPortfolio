@@ -5,8 +5,12 @@ import FullButton from '../../components/ui/fullButton/FullButton';
 import computerGuyGif from '../../assets/computerGuy.gif';
 
 const MainPageContet = () => {
-    const [typedText, setTypedText] = useState('');
-    const textToType = useMemo(() => [
+    const [typedText, setTypedText] = useState<string>('');
+    const [textIndex, setTextIndex] = useState<number>(0);
+    const [charIndex, setCharIndex] = useState<number>(0);
+
+
+    const textToType = useMemo<string[]>(() => [
         "Welcome to my portfolio! As a full stack developer with 1.5 years of experience,",
         "I've built this website using React and TypeScript. Currently seeking new job opportunities,",
         "I'm eager to join a dynamic team where I can contribute my skills and expertise.",
@@ -14,9 +18,6 @@ const MainPageContet = () => {
         "I'm committed to delivering high-quality code and thriving in collaborative, cross-functional environments."
     ], [])
 
-
-    const [textIndex, setTextIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
 
 
     useEffect(() => {

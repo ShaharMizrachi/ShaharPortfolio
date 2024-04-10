@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './MainPageContet.css';
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 import FullButton from '../../components/ui/fullButton/FullButton';
@@ -6,16 +6,18 @@ import computerGuyGif from '../../assets/computerGuy.gif';
 
 const MainPageContet = () => {
     const [typedText, setTypedText] = useState('');
-    const textToType = [
+    const textToType = useMemo(() => [
         "Welcome to my portfolio! As a full stack developer with 1.5 years of experience,",
         "I've built this website using React and TypeScript. Currently seeking new job opportunities,",
         "I'm eager to join a dynamic team where I can contribute my skills and expertise.",
         "With a strong work ethic, motivation, and excellent interpersonal skills honed throughout my professional journey,",
         "I'm committed to delivering high-quality code and thriving in collaborative, cross-functional environments."
-    ];
+    ], [])
+
+
     const [textIndex, setTextIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
-    const [lineBreakNeeded, setLineBreakNeeded] = useState(false);
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -24,16 +26,14 @@ const MainPageContet = () => {
                 setCharIndex(charIndex + 1);
             } else if (textIndex < textToType.length - 1) {
                 setTextIndex(textIndex + 1);
+                setTypedText(prevtext => prevtext + '<br />')
                 setCharIndex(0);
-                setLineBreakNeeded(true);
             } else {
                 clearInterval(interval);
             }
-        }, 20);
+        }, 70);
 
-        if (lineBreakNeeded) {
-            setLineBreakNeeded(false);
-        }
+
 
         return () => clearInterval(interval);
     }, [typedText, charIndex, textIndex, textToType]);
@@ -46,9 +46,7 @@ const MainPageContet = () => {
             <div className='seconderyHeadLine'>
                 Full Stack Developer
             </div>
-            <div className='descriptionText'>
-                {lineBreakNeeded && <br />}
-                {typedText}
+            <div className='descriptionText' dangerouslySetInnerHTML={{ __html: typedText }}>
             </div>
             <div>
                 <EmptyButton name='Download CV' />

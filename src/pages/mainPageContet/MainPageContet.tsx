@@ -3,11 +3,45 @@ import './MainPageContet.css';
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 import FullButton from '../../components/ui/fullButton/FullButton';
 import computerGuyGif from '../../assets/computerGuy.gif';
+import Carousel from '../../components/ui/carousel/Carousel';
+import AssetProviderPics from '../../components/ui/AssetProviderPics';
+
+// Import all the necessary assets/images
+import javaPic from '../../assets/signs/java1.png';
+import dotNetPic from '../../assets/signs/Asp .Net Core2.png';
+import cssPic from '../../assets/signs/CSS-Logo.png';
+import expressJsPic from '../../assets/signs/express-js2.png';
+import nodeJsPic from '../../assets/signs/nodejs1.png';
+import reactPic from '../../assets/signs/react-logo.jpg';
+import reactNativePic from '../../assets/signs/react-native1.png';
+import sqlPic from '../../assets/signs/sql2.png';
+import angularPic from '../../assets/signs/the-seo-guide-to-angular.png';
+import pythonPic from '../../assets/signs/python.png';
+import jsPic from '../../assets/signs/js.png';
+
+
 
 const MainPageContet = () => {
     const [typedText, setTypedText] = useState<string>('');
     const [textIndex, setTextIndex] = useState<number>(0);
     const [charIndex, setCharIndex] = useState<number>(0);
+
+
+
+    const imagesSigns: string[] = [
+        javaPic,
+        dotNetPic,
+        cssPic,
+        expressJsPic,
+        nodeJsPic,
+        reactPic,
+        reactNativePic,
+        sqlPic,
+        angularPic,
+        pythonPic,
+        jsPic,
+    ];
+
 
 
     const textToType = useMemo<string[]>(() => [
@@ -56,6 +90,7 @@ const MainPageContet = () => {
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='gif' />
             </div>
+            <Carousel images={imagesSigns} />
         </div>
     )
 }

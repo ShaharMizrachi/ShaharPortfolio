@@ -83,14 +83,18 @@ const MainPageContet = () => {
             </div>
             <div className='descriptionText' dangerouslySetInnerHTML={{ __html: typedText }}>
             </div>
-            <div>
+            <div className='buttonsContainer'>
                 <EmptyButton name='Download CV' />
                 <FullButton name='Contect Me' />
             </div>
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='gif' />
             </div>
+            <div className='skills'>
+                Skills
+            </div>
             <Carousel images={imagesSigns} />
+
         </div>
     )
 }

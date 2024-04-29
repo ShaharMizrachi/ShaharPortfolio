@@ -7,27 +7,45 @@
 
 .headLine {
   color: #73cdc2;
-  font-size: 200%;
+  font-size: xxx-large;
   font-weight: 540;
+  margin-top: 5%;
 }
 
 .seconderyHeadLine {
   color: aliceblue;
+  font-size: x-large;
   display: flex;
   justify-content: center;
+  margin-top: 1%;
 }
 
 .descriptionText {
   color: azure;
+  font-size: larger;
   display: flex;
   justify-content: center;
   text-align: center;
+  line-height: 150%;
+  margin-top: 2%;
+}
+
+.buttonsContainer {
+  margin-top: 3%;
+  display: flex;
+  justify-self: center;
+  gap: 10%;
+  width: 35%;
 }
 
 .gif {
-  height: 41vh;
-  width: 37vh;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
+  height: 27vh;
+  width: 27vh;
   margin-top: 5vh;
+  border-radius: 50%;
+}
+
+.skills {
+  color: aqua;
+  background-color: #73cdc2;
 }

@@ -18,13 +18,13 @@
 }
 
 .carousel-item {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-color: #ccc;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(200px);
+  transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(100px);
   opacity: 0.8;
   display: flex;
   justify-content: center;

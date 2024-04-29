@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import './MainPageContet.css';
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 import FullButton from '../../components/ui/fullButton/FullButton';
-import computerGuyGif from '../../assets/computerGuy.gif';
+import computerGuyGif from '../../assets/computerGuy.jpg';
 import Carousel from '../../components/ui/carousel/Carousel';
 import AssetProviderPics from '../../components/ui/AssetProviderPics';
 

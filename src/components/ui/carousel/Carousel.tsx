@@ -17,7 +17,7 @@ const Carousel = ({ images }: { images: string[] }) => {
                             {
                                 // Correctly rotate each item based on its index
                                 '--i': index,
-                                transform: `rotateY(${angle * index}deg) translateZ(500px)`, // Distribute items evenly
+                                transform: `rotateY(${angle * index}deg) translateZ(350px)`, // Distribute items evenly
                             } as CSSProperties
                         }                >
                         <img src={url} alt="raect" />

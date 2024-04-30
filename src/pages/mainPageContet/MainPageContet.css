@@ -46,6 +46,8 @@
 }
 
 .skills {
-  color: aqua;
-  background-color: #73cdc2;
+  font-size: xx-large;
+  color: #73cdc2;
+  text-decoration-line: underline;
+  margin-top: 4%;
 }

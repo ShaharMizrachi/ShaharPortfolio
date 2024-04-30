@@ -3,6 +3,7 @@
   /* justify-content: center; */
   flex-direction: column; /* Ensure items are stacked vertically */
   align-items: center; /* Center items horizontally */
+  width: 50%;
 }
 
 .headLine {
@@ -34,8 +35,11 @@
   margin-top: 3%;
   display: flex;
   justify-self: center;
+  align-items: center;
   gap: 10%;
   width: 35%;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .gif {

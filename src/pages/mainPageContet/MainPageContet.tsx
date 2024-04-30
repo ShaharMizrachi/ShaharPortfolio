@@ -16,6 +16,7 @@ import angularPic from '../../assets/signs/the-seo-guide-to-angular.png';
 import pythonPic from '../../assets/signs/python.png';
 import jsPic from '../../assets/signs/js.png';
 
+
 const MainPageContet = () => {
     const [typedText, setTypedText] = useState('');
     const [textIndex, setTextIndex] = useState(0);
@@ -72,6 +73,9 @@ const MainPageContet = () => {
 
     const displayText = typedText + (showCursor ? '|' : '&nbsp;'); // Text with cursor
 
+    const cvFilePath = '../../assets/CV-Shahar.pdf';
+
+
     return (
         <div className='profileContainer'>
             <div className='headLine'>
@@ -82,7 +86,9 @@ const MainPageContet = () => {
             </div>
             <div className="descriptionText" dangerouslySetInnerHTML={{ __html: displayText }} />
             <div className='buttonsContainer'>
-                <EmptyButton name='Download CV' />
+                <a href={cvFilePath} download={"CV-Shahar.pdf"}>
+                    <EmptyButton name='Download CV' />
+                </a>
                 <FullButton name='Contact Me' />
             </div>
             <div>

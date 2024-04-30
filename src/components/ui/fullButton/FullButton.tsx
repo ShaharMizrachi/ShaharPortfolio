@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import Button from '@mui/material/Button';
 // import './FullButton.css'
 import styled from '@emotion/styled';
 
-const FullButton = ({ name }: { name: string }) => {
+const FullButton = ({ name, onClick }: { name: string, onClick: MouseEventHandler<HTMLButtonElement> }) => {
     return (
-        <><ButtonStyle variant="contained" content='#73cdc2' >{name}</ButtonStyle></>
+        <><ButtonStyle onClick={onClick} variant="contained" content='#73cdc2' >{name}</ButtonStyle></>
     )
 }
 

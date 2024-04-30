@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './MainPageContet.css';
+
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 import FullButton from '../../components/ui/fullButton/FullButton';
 import computerGuyGif from '../../assets/computerGuy.jpg';
@@ -15,6 +16,12 @@ import sqlPic from '../../assets/signs/sql2.png';
 import angularPic from '../../assets/signs/the-seo-guide-to-angular.png';
 import pythonPic from '../../assets/signs/python.png';
 import jsPic from '../../assets/signs/js.png';
+
+interface MailMeButtonProps {
+    email: string;
+    subject?: string;
+    body?: string;
+}
 
 
 const MainPageContet = () => {
@@ -76,6 +83,23 @@ const MainPageContet = () => {
     const cvFilePath = '../../assets/CV-Shahar.pdf';
 
 
+    const sendingEmail = () => {
+        console.log("testttttt");
+
+        const mailtoLink = `mailto:shaharmm22@gmail.com?${new URLSearchParams({
+            subject: "Hello Shahar from portfolio",
+            body: "",
+        }).toString()}`;
+
+        // Navigate to the mailto link
+        // window.location.href = mailtoLink;
+        window.open(mailtoLink, '_self');
+        // window.open('mailto:mailto:shaharmm22@gmail.com?subject=Subject&body=Body%20goes%20here')
+
+    };
+
+
+
     return (
         <div className='profileContainer'>
             <div className='headLine'>
@@ -89,7 +113,7 @@ const MainPageContet = () => {
                 <a href={cvFilePath} download={"CV-Shahar.pdf"}>
                     <EmptyButton name='Download CV' />
                 </a>
-                <FullButton name='Contact Me' />
+                <FullButton name='Contact Me' onClick={sendingEmail} />
             </div>
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='gif' />

@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.815ebaa8.css",
+    "main.js": "/static/js/main.2329d7e5.js",
+    "static/js/453.ace21015.chunk.js": "/static/js/453.ace21015.chunk.js",
+    "static/media/nodejs1.png": "/static/media/nodejs1.fec8553a062eb1c472dd.png",
+    "static/media/react-logo.jpg": "/static/media/react-logo.4604254bca9dec726635.jpg",
+    "static/media/express-js2.png": "/static/media/express-js2.304b141b6c72993d3aad.png",
+    "static/media/computerGuy.jpg": "/static/media/computerGuy.0944eec924f6662c0255.jpg",
+    "static/media/sql2.png": "/static/media/sql2.d1c240a2b1dfb6ff8eb5.png",
+    "static/media/CSS-Logo.png": "/static/media/CSS-Logo.0ca65abfc0c427bc3506.png",
+    "static/media/the-seo-guide-to-angular.png": "/static/media/the-seo-guide-to-angular.52b82f7bf8dbde6b1ab1.png",
+    "index.html": "/index.html",
+    "main.815ebaa8.css.map": "/static/css/main.815ebaa8.css.map",
+    "main.2329d7e5.js.map": "/static/js/main.2329d7e5.js.map",
+    "453.ace21015.chunk.js.map": "/static/js/453.ace21015.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.815ebaa8.css",
+    "static/js/main.2329d7e5.js"
+  ]
+}

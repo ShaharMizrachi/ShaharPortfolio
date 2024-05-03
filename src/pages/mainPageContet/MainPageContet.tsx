@@ -16,6 +16,8 @@ import sqlPic from '../../assets/signs/sql2.png';
 import angularPic from '../../assets/signs/the-seo-guide-to-angular.png';
 import pythonPic from '../../assets/signs/python.png';
 import jsPic from '../../assets/signs/js.png';
+import ProjectBox from '../../components/ui/projectBox/ProjectBox';
+import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
 
 interface MailMeButtonProps {
     email: string;
@@ -84,7 +86,7 @@ const MainPageContet = () => {
 
 
     const sendingEmail = () => {
-        console.log("testttttt");
+
 
         const mailtoLink = `mailto:shaharmm22@gmail.com?${new URLSearchParams({
             subject: "Hello Shahar from portfolio",
@@ -122,6 +124,9 @@ const MainPageContet = () => {
                 Skills
             </div>
             <Carousel images={imagesSigns} />
+            <div className='projectsContainer'>
+                <ProjectsBoxsDataSent />
+            </div>
         </div>
     );
 };

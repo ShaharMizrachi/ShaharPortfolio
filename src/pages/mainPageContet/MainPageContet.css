@@ -55,3 +55,8 @@
   text-decoration-line: underline;
   margin-top: 4%;
 }
+
+.projectsContainer {
+  margin-top: 30%;
+  display: flex;
+}

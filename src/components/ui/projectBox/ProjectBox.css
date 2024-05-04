@@ -8,9 +8,11 @@
   align-items: center;
   text-align: center;
 
-  flex-basis: 33.33%; /* Each item occupies one-third of the row */
-  flex-grow: 0.1; /* Items grow to fill available space */
+  flex-basis: 25%; /* Each item occupies 25% of the row */
+  flex-grow: 0.3;
+  /* Items grow to fill available space */
   margin: 15px; /* Adds space between items */
+  padding: 1%;
 }
 
 .title {

@@ -57,6 +57,7 @@
 }
 
 .projectsContainer {
-  margin-top: 30%;
+  margin-top: 20%;
   display: flex;
+  width: 100%;
 }

@@ -118,7 +118,7 @@ const MainPageContet = () => {
                 <FullButton name='Contact Me' onClick={sendingEmail} />
             </div>
             <div>
-                <img src={computerGuyGif} alt="My GIF" className='gif' />
+                <img src={computerGuyGif} alt="My GIF" className='computerGuyPic' />
             </div>
             <div className='skills'>
                 Skills

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import './MainPageContet.css';
 
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
@@ -31,6 +31,10 @@ const MainPageContet = () => {
     const [textIndex, setTextIndex] = useState(0);
     const [charIndex, setCharIndex] = useState(0);
     const [showCursor, setShowCursor] = useState(true);
+
+
+    const [isInView, setIsInView] = useState(false);
+    const projectsContainerRef = useRef<HTMLDivElement | null>(null);
 
     const imagesSigns = [
         javaPic,
@@ -85,6 +89,35 @@ const MainPageContet = () => {
     const cvFilePath = '../../assets/CV-Shahar.pdf';
 
 
+
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries: IntersectionObserverEntry[]) => {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
+                    setIsInView(true); // Trigger the slide-in animation
+                    observer.disconnect(); // Optional: Disconnect after first intersection
+                }
+            },
+            { threshold: 0.5 } // Trigger when 50% of the container is visible
+        );
+
+        if (projectsContainerRef.current) {
+            observer.observe(projectsContainerRef.current);
+        }
+
+        return () => {
+            if (projectsContainerRef.current) {
+                observer.unobserve(projectsContainerRef.current);
+            }
+        };
+    }, []);
+
+
+
+
+
     const sendingEmail = () => {
 
 
@@ -124,8 +157,11 @@ const MainPageContet = () => {
                 Skills
             </div>
             <Carousel images={imagesSigns} />
-            <div className='projectsContainer'>
-                <ProjectsBoxsDataSent />
+            <div
+                className={`projectsContainer ${isInView ? 'slide-in' : ''}`}
+                ref={projectsContainerRef}
+            >
+                <ProjectsBoxsDataSent /> {/* Component with project boxes */}
             </div>
         </div>
     );

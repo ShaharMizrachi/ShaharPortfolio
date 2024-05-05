@@ -58,12 +58,39 @@
   margin-top: 4%;
 }
 
+/* /////////////////////////////////////////////////////////////// */
+
+/* Define the keyframe animation */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%); /* Start off-screen */
+  }
+  to {
+    transform: translateX(0); /* End at the original position */
+  }
+}
+
+/* Apply the animation when needed */
+.projectsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
+  opacity: 0; /* Start invisible */
+}
+
+/* Add this class to trigger the slide-in animation */
+.projectsContainer.slide-in {
+  animation: slideInFromLeft 1s ease-in-out;
+  opacity: 1; /* Become visible during animation */
+  /* background-color: #73cdc2; */
+}
+
 .projectsContainer {
   margin-top: 20%;
   display: flex;
   width: 100%;
 }
-
+/* /////////////////////////////////////////////////////////////// */
 .computerGuyPic {
   --f: 0.1; /* the parallax factor (the smaller the better) */
   --r: 10px; /* radius */

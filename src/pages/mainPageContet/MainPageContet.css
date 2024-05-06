@@ -29,6 +29,7 @@
   text-align: center;
   line-height: 150%;
   margin-top: 2%;
+  min-height: 17vh;
 }
 
 .buttonsContainer {

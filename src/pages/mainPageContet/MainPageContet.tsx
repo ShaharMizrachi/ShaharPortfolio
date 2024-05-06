@@ -148,7 +148,7 @@ const MainPageContet = () => {
                 <a href={cvFilePath} download={"CV-Shahar.pdf"}>
                     <EmptyButton name='Download CV' />
                 </a>
-                <FullButton name='Contact Me' onClick={sendingEmail} />
+                {/* <FullButton name='Contact Me' onClick={sendingEmail} /> */}
             </div>
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='computerGuyPic' />
@@ -161,7 +161,7 @@ const MainPageContet = () => {
                 className={`projectsContainer ${isInView ? 'slide-in' : ''}`}
                 ref={projectsContainerRef}
             >
-                <ProjectsBoxsDataSent /> {/* Component with project boxes */}
+                {/* <ProjectsBoxsDataSent />  */}
             </div>
         </div>
     );

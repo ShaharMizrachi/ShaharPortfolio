@@ -26,7 +26,7 @@ const ProjectsBoxsDataSent = () => {
         />
     ));
 
-    return <div className='projectsContainer'>{projectBoxes}</div>;
+    return <div className='projectsContainerBoxes'>{projectBoxes}</div>;
 }
 
 export default ProjectsBoxsDataSent

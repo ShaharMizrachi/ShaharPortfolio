@@ -1,10 +1,4 @@
-/* .projectsContainer {
-  flex-direction: row;
-  display: flex;
-  flex-wrap: wrap;
-} */
-
-.projectsContainer {
+.projectsContainerBoxes {
   display: flex;
   flex-wrap: wrap; /* Allow items to wrap if needed */
   justify-content: space-between; /* Space out items */

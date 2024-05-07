@@ -27,10 +27,10 @@ interface MailMeButtonProps {
 
 
 const MainPageContet = () => {
-    const [typedText, setTypedText] = useState('');
-    const [textIndex, setTextIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
-    const [showCursor, setShowCursor] = useState(true);
+    const [typedText, setTypedText] = useState<string>('');
+    const [textIndex, setTextIndex] = useState<number>(0);
+    const [charIndex, setCharIndex] = useState<number>(0);
+    const [showCursor, setShowCursor] = useState<boolean>(true);
 
 
     const [isInView, setIsInView] = useState(false);
@@ -76,6 +76,8 @@ const MainPageContet = () => {
         return () => clearInterval(typingInterval);
     }, [charIndex, textIndex, textToType]);
 
+
+    //cursor
     useEffect(() => {
         const cursorInterval = setInterval(() => {
             setShowCursor(prev => !prev); // Toggle cursor 
@@ -163,6 +165,7 @@ const MainPageContet = () => {
             >
                 <ProjectsBoxsDataSent /> {/* Component with project boxes */}
             </div>
+
         </div>
     );
 };

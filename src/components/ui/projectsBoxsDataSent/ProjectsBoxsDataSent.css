@@ -8,16 +8,22 @@
 }
 
 .projectBox {
-  border: 2px solid #fff5e0;
-  border-radius: 20%;
-  height: 30vh;
-  width: 30vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  background-color: #1e293b;
+  border: 2px solid #a0f0e1; /* Uniform border */
+  border-radius: 20%; /* Rounded corners */
+  height: 33%; /* Defined height */
+  max-height: 33%;
+  width: 33%; /* Defined width */
+  max-width: 39%;
+  display: flex; /* Flex layout */
+  flex-direction: column; /* Vertical arrangement */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text */
   flex-basis: 25%; /* Each item occupies 25% of a row */
-  flex-grow: 0.3; /* Allows some flexibility */
+  flex-grow: 0.3; /* Flexibility for growth */
   margin: 15px; /* Space between items */
-  padding: 1%; /* Padding inside the box */
+  padding: 1%; /* Padding within the box */
+  justify-content: center;
+  line-height: 130%;
+  z-index: 1;
 }

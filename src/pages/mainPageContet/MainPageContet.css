@@ -29,6 +29,7 @@
   text-align: center;
   line-height: 150%;
   margin-top: 2%;
+  min-height: 17vh;
 }
 
 .buttonsContainer {
@@ -80,9 +81,8 @@
 
 /* Add this class to trigger the slide-in animation */
 .projectsContainer.slide-in {
-  animation: slideInFromLeft 1s ease-in-out;
+  animation: slideInFromLeft 3s ease-in-out;
   opacity: 1; /* Become visible during animation */
-  /* background-color: #73cdc2; */
 }
 
 .projectsContainer {

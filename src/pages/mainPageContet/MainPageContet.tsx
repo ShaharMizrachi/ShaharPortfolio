@@ -100,7 +100,7 @@ const MainPageContet = () => {
                     observer.disconnect(); // Optional: Disconnect after first intersection
                 }
             },
-            { threshold: 0.5 } // Trigger when 50% of the container is visible
+            { threshold: 0.1 } // Trigger when 10% of the container is visible
         );
 
         if (projectsContainerRef.current) {

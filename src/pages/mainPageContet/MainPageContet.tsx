@@ -161,7 +161,7 @@ const MainPageContet = () => {
                 className={`projectsContainer ${isInView ? 'slide-in' : ''}`}
                 ref={projectsContainerRef}
             >
-                {/* <ProjectsBoxsDataSent />  */}
+                <ProjectsBoxsDataSent />
             </div>
         </div>
     );

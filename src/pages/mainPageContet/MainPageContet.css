@@ -110,3 +110,11 @@
   clip-path: inset(0 0 0 var(--_f) round var(--r));
   --_t: translateX(calc(-1 * var(--_f))) rotateY(calc(-1 * var(--_a)));
 }
+/* ////////////////////////////////////////////////////////////////////// */
+.ContactMeContainer {
+  background-color: #1e293b;
+  border: solid 2px #a0f0e1;
+  border-radius: 20%;
+  padding: 10%;
+  margin-top: 30%;
+}

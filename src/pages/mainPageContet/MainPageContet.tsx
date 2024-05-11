@@ -18,6 +18,7 @@ import pythonPic from '../../assets/signs/python.png';
 import jsPic from '../../assets/signs/js.png';
 import ProjectBox from '../../components/ui/projectBox/ProjectBox';
 import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
+import ContactMe from '../contactMe/ContactMe';
 
 interface MailMeButtonProps {
     email: string;
@@ -165,7 +166,9 @@ const MainPageContet = () => {
             >
                 <ProjectsBoxsDataSent /> {/* Component with project boxes */}
             </div>
-
+            <div className='ContactMeContainer'>
+                <ContactMe />
+            </div>
         </div>
     );
 };

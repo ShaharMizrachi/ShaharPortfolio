@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import './ContactMe.css';
 import TextField from '@mui/material/TextField';
 import FullButton from '../../components/ui/fullButton/FullButton';
+import CustomTextField from '../../components/ui/CustomTextField';
 
 const ContactMe = () => {
     const [phoneError, setPhoneError] = useState<boolean>(false);
@@ -46,7 +47,7 @@ const ContactMe = () => {
         <>
             <h2 className='title commenProperties'>Contact Me</h2>
             <div className='shortFiledsContainer commenProperties'>
-                <TextField
+                <CustomTextField
                     required
                     id="outlined-required"
                     label="Full Name"
@@ -54,15 +55,17 @@ const ContactMe = () => {
                     value={contactInfo.name}
                     onChange={handleInputChange}
                 />
-                <TextField
+                <CustomTextField
                     required
                     id="outlined-required"
                     label="Phone"
                     name="phone"
                     value={contactInfo.phone}
                     onChange={handleInputChange}
+                    error={phoneError}
+                    helperText={phoneError ? 'Invalid phone number' : ''}
                 />
-                <TextField
+                <CustomTextField
                     required
                     id="outlined-required"
                     label="Email"
@@ -72,7 +75,7 @@ const ContactMe = () => {
                 />
             </div>
             <div className='messageTextConatiner commenProperties'>
-                <TextField
+                <CustomTextField
                     id="outlined-multiline-static"
                     label="Message"
                     name="message"
@@ -82,7 +85,9 @@ const ContactMe = () => {
                     onChange={handleInputChange}
                 />
             </div>
-            <div className='submitButtonContainer commenProperties'><FullButton name={'Submit'} onClick={submit} /></div>
+            <div className='submitButtonContainer commenProperties'>
+                <FullButton name={'Submit'} onClick={submit} />
+            </div>
         </>
     );
 };

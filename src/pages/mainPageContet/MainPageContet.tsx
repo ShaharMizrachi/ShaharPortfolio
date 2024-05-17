@@ -36,6 +36,7 @@ const MainPageContet = () => {
 
     const [isInView, setIsInView] = useState(false);
     const projectsContainerRef = useRef<HTMLDivElement | null>(null);
+    const contactMeRef = useRef<HTMLDivElement | null>(null);
 
     const imagesSigns = [
         javaPic,
@@ -115,8 +116,34 @@ const MainPageContet = () => {
                 observer.unobserve(projectsContainerRef.current);
             }
         };
+
+        //contactMeRef
     }, []);
 
+
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries: IntersectionObserverEntry[]) => {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
+                    setIsInView(true); // Trigger the slide-in animation
+                    observer.disconnect(); // Optional: Disconnect after first intersection
+                }
+            },
+            { threshold: 0.1 } // Trigger when 10% of the container is visible
+        );
+
+        if (contactMeRef.current) {
+            observer.observe(contactMeRef.current);
+        }
+
+        return () => {
+            if (contactMeRef.current) {
+                observer.unobserve(contactMeRef.current);
+            }
+        };
+    }, []);
 
 
 
@@ -166,7 +193,7 @@ const MainPageContet = () => {
             >
                 <ProjectsBoxsDataSent /> {/* Component with project boxes */}
             </div>
-            <div className='ContactMeContainer'>
+            <div className={`ContactMeContainer ${isInView ? 'slide-inContactMe' : ''}`} ref={contactMeRef}>
                 <ContactMe />
             </div>
         </div>

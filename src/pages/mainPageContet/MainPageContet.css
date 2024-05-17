@@ -118,3 +118,24 @@
   padding: 10%;
   margin-top: 30%;
 }
+
+.ContactMeContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
+  opacity: 0; /* Start invisible */
+}
+
+@keyframes slideInFromLeftContactMe {
+  from {
+    transform: translateX(-100%); /* Start off-screen */
+  }
+  to {
+    transform: translateX(0); /* End at the original position */
+  }
+}
+
+.ContactMeContainer.slide-inContactMe {
+  animation: slideInFromLeftContactMe 3s ease-in-out;
+  opacity: 1 !important; /* Become visible during animation */
+}

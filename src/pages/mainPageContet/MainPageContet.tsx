@@ -19,6 +19,7 @@ import jsPic from '../../assets/signs/js.png';
 import ProjectBox from '../../components/ui/projectBox/ProjectBox';
 import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
 import ContactMe from '../contactMe/ContactMe';
+import UseIntersectionObserverSlide from '../../components/hooks/UseIntersectionObserverSlide';
 
 interface MailMeButtonProps {
     email: string;
@@ -33,8 +34,9 @@ const MainPageContet = () => {
     const [charIndex, setCharIndex] = useState<number>(0);
     const [showCursor, setShowCursor] = useState<boolean>(true);
 
-
-    const [isInView, setIsInView] = useState(false);
+    // slide in affect 
+    const [isProjectsInView, setIsProjectsInView] = useState(false);
+    const [isContactInView, setIsContactInView] = useState(false);
     const projectsContainerRef = useRef<HTMLDivElement | null>(null);
     const contactMeRef = useRef<HTMLDivElement | null>(null);
 
@@ -95,55 +97,11 @@ const MainPageContet = () => {
 
 
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries: IntersectionObserverEntry[]) => {
-                const entry = entries[0];
-                if (entry.isIntersecting) {
-                    setIsInView(true); // Trigger the slide-in animation
-                    observer.disconnect(); // Optional: Disconnect after first intersection
-                }
-            },
-            { threshold: 0.1 } // Trigger when 10% of the container is visible
-        );
-
-        if (projectsContainerRef.current) {
-            observer.observe(projectsContainerRef.current);
-        }
-
-        return () => {
-            if (projectsContainerRef.current) {
-                observer.unobserve(projectsContainerRef.current);
-            }
-        };
-
-        //contactMeRef
-    }, []);
+    // Use the custom hook for both elements
+    UseIntersectionObserverSlide(projectsContainerRef, setIsProjectsInView, { threshold: 0.1 });
+    UseIntersectionObserverSlide(contactMeRef, setIsContactInView, { threshold: 0.1 });
 
 
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries: IntersectionObserverEntry[]) => {
-                const entry = entries[0];
-                if (entry.isIntersecting) {
-                    setIsInView(true); // Trigger the slide-in animation
-                    observer.disconnect(); // Optional: Disconnect after first intersection
-                }
-            },
-            { threshold: 0.1 } // Trigger when 10% of the container is visible
-        );
-
-        if (contactMeRef.current) {
-            observer.observe(contactMeRef.current);
-        }
-
-        return () => {
-            if (contactMeRef.current) {
-                observer.unobserve(contactMeRef.current);
-            }
-        };
-    }, []);
 
 
 
@@ -188,12 +146,12 @@ const MainPageContet = () => {
             </div>
             <Carousel images={imagesSigns} />
             <div
-                className={`projectsContainer ${isInView ? 'slide-in' : ''}`}
+                className={`projectsContainer ${isProjectsInView ? 'slide-in' : ''}`}
                 ref={projectsContainerRef}
             >
                 <ProjectsBoxsDataSent /> {/* Component with project boxes */}
             </div>
-            <div className={`ContactMeContainer ${isInView ? 'slide-inContactMe' : ''}`} ref={contactMeRef}>
+            <div className={`ContactMeContainer ${isContactInView ? 'slide-inContactMe' : ''}`} ref={contactMeRef}>
                 <ContactMe />
             </div>
         </div>

@@ -122,6 +122,13 @@ const MainPageContet = () => {
     };
 
 
+    // Scroll to ContactMe section
+    const scrollToContactMe = () => {
+        if (contactMeRef.current) {
+            contactMeRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
 
     return (
         <div className='profileContainer'>
@@ -136,7 +143,7 @@ const MainPageContet = () => {
                 <a href={cvFilePath} download={"CV-Shahar.pdf"}>
                     <EmptyButton name='Download CV' />
                 </a>
-                <FullButton name='Contact Me' onClick={sendingEmail} />
+                <FullButton name='Contact Me' onClick={scrollToContactMe} />
             </div>
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='computerGuyPic' />

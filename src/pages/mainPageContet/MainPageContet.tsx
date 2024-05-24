@@ -18,6 +18,8 @@ import pythonPic from '../../assets/signs/python.png';
 import jsPic from '../../assets/signs/js.png';
 import ProjectBox from '../../components/ui/projectBox/ProjectBox';
 import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
+import ContactMe from '../contactMe/ContactMe';
+import UseIntersectionObserverSlide from '../../components/hooks/UseIntersectionObserverSlide';
 
 interface MailMeButtonProps {
     email: string;
@@ -27,14 +29,16 @@ interface MailMeButtonProps {
 
 
 const MainPageContet = () => {
-    const [typedText, setTypedText] = useState('');
-    const [textIndex, setTextIndex] = useState(0);
-    const [charIndex, setCharIndex] = useState(0);
-    const [showCursor, setShowCursor] = useState(true);
+    const [typedText, setTypedText] = useState<string>('');
+    const [textIndex, setTextIndex] = useState<number>(0);
+    const [charIndex, setCharIndex] = useState<number>(0);
+    const [showCursor, setShowCursor] = useState<boolean>(true);
 
-
-    const [isInView, setIsInView] = useState(false);
+    // slide in affect 
+    const [isProjectsInView, setIsProjectsInView] = useState(false);
+    const [isContactInView, setIsContactInView] = useState(false);
     const projectsContainerRef = useRef<HTMLDivElement | null>(null);
+    const contactMeRef = useRef<HTMLDivElement | null>(null);
 
     const imagesSigns = [
         javaPic,
@@ -76,6 +80,8 @@ const MainPageContet = () => {
         return () => clearInterval(typingInterval);
     }, [charIndex, textIndex, textToType]);
 
+
+    //cursor
     useEffect(() => {
         const cursorInterval = setInterval(() => {
             setShowCursor(prev => !prev); // Toggle cursor 
@@ -91,28 +97,10 @@ const MainPageContet = () => {
 
 
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries: IntersectionObserverEntry[]) => {
-                const entry = entries[0];
-                if (entry.isIntersecting) {
-                    setIsInView(true); // Trigger the slide-in animation
-                    observer.disconnect(); // Optional: Disconnect after first intersection
-                }
-            },
-            { threshold: 0.1 } // Trigger when 10% of the container is visible
-        );
+    // Use the custom hook for both elements
+    UseIntersectionObserverSlide(projectsContainerRef, setIsProjectsInView, { threshold: 0.1 });
+    UseIntersectionObserverSlide(contactMeRef, setIsContactInView, { threshold: 0.1 });
 
-        if (projectsContainerRef.current) {
-            observer.observe(projectsContainerRef.current);
-        }
-
-        return () => {
-            if (projectsContainerRef.current) {
-                observer.unobserve(projectsContainerRef.current);
-            }
-        };
-    }, []);
 
 
 
@@ -134,6 +122,13 @@ const MainPageContet = () => {
     };
 
 
+    // Scroll to ContactMe section
+    const scrollToContactMe = () => {
+        if (contactMeRef.current) {
+            contactMeRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
 
     return (
         <div className='profileContainer'>
@@ -148,7 +143,7 @@ const MainPageContet = () => {
                 <a href={cvFilePath} download={"CV-Shahar.pdf"}>
                     <EmptyButton name='Download CV' />
                 </a>
-                <FullButton name='Contact Me' onClick={sendingEmail} />
+                <FullButton name='Contact Me' onClick={scrollToContactMe} />
             </div>
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='computerGuyPic' />
@@ -158,10 +153,13 @@ const MainPageContet = () => {
             </div>
             <Carousel images={imagesSigns} />
             <div
-                className={`projectsContainer ${isInView ? 'slide-in' : ''}`}
+                className={`projectsContainer ${isProjectsInView ? 'slide-in' : ''}`}
                 ref={projectsContainerRef}
             >
                 <ProjectsBoxsDataSent /> {/* Component with project boxes */}
+            </div>
+            <div className={`ContactMeContainer ${isContactInView ? 'slide-inContactMe' : ''}`} ref={contactMeRef}>
+                <ContactMe />
             </div>
         </div>
     );

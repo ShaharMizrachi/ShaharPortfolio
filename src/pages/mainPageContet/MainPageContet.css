@@ -110,3 +110,34 @@
   clip-path: inset(0 0 0 var(--_f) round var(--r));
   --_t: translateX(calc(-1 * var(--_f))) rotateY(calc(-1 * var(--_a)));
 }
+/* ////////////////////////////////////////////////////////////////////// */
+.ContactMeContainer {
+  background-color: #1e293b;
+  border: solid 2px #73cdc2;
+  border-radius: 20%;
+  padding: 10%;
+  margin-top: 30%;
+}
+
+.ContactMeContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; /* Allow items to wrap */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
+  opacity: 0; /* Start invisible */
+  justify-content: space-between;
+}
+
+@keyframes slideInFromLeftContactMe {
+  from {
+    transform: translateX(-100%); /* Start off-screen */
+  }
+  to {
+    transform: translateX(0); /* End at the original position */
+  }
+}
+
+.ContactMeContainer.slide-inContactMe {
+  animation: slideInFromLeftContactMe 3s ease-in-out;
+  opacity: 1 !important; /* Become visible during animation */
+}

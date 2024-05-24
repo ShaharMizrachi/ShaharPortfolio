@@ -76,6 +76,7 @@ const ContactMe = () => {
             </div>
             <div className='messageTextConatiner commenProperties'>
                 <CustomTextField
+                    required
                     id="outlined-multiline-static"
                     label="Message"
                     name="message"

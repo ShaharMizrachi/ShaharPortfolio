@@ -121,9 +121,11 @@
 
 .ContactMeContainer {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap; /* Allow items to wrap */
   transition: opacity 0.5s ease-in-out; /* Smooth transition for visibility */
   opacity: 0; /* Start invisible */
+  justify-content: space-between;
 }
 
 @keyframes slideInFromLeftContactMe {

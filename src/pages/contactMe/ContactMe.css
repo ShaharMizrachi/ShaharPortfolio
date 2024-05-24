@@ -6,10 +6,22 @@
 }
 
 .shortFiledsContainer {
+  display: inline-flex;
+}
+
+.shortFiledsContainer .MuiTextField-root {
+  padding: 1%;
 }
 
 .messageTextConatiner {
+  padding: 1%;
+}
+
+.messageTextConatiner .MuiTextField-root {
+  width: 100%; /* or any desired width */
 }
 
 .submitButtonContainer {
+  padding: 1%;
+  margin-top: 3%;
 }

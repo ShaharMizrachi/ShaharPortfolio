@@ -12,6 +12,7 @@ const ContactMe = () => {
         phone: '',
         email: '',
         message: '',
+        date: ''
     });
 
     // Generalized function to update state based on field name
@@ -41,7 +42,12 @@ const ContactMe = () => {
 
     const submit = async () => {
         try {
-            const response = await postData('/contacts', contactInfo);
+            const date = new Date;
+            const updatedContactInfo = {
+                ...contactInfo,
+                date: date.toString(),
+            };
+            const response = await postData('/contacts', updatedContactInfo);
             console.log('Data saved successfully:', response);
         } catch (error) {
             console.error('Error saving contact info:', error);

@@ -3,6 +3,7 @@ import './ContactMe.css';
 import TextField from '@mui/material/TextField';
 import FullButton from '../../components/ui/fullButton/FullButton';
 import CustomTextField from '../../components/ui/CustomTextField';
+import { postData } from '../../components/api/api';
 
 const ContactMe = () => {
     const [phoneError, setPhoneError] = useState<boolean>(false);
@@ -38,9 +39,14 @@ const ContactMe = () => {
 
 
 
-    const submit = () => {
-
-    }
+    const submit = async () => {
+        try {
+            const response = await postData('/contacts', contactInfo);
+            console.log('Data saved successfully:', response);
+        } catch (error) {
+            console.error('Error saving contact info:', error);
+        }
+    };
 
 
     return (

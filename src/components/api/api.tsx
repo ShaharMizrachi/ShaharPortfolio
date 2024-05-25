@@ -1,10 +1,10 @@
 import axios from "axios";
 
-
-const BASE_URL = 'https://portfolio-shahar-default-rtdb.asia-southeast1.firebasedatabase.app';
+const FIREBASE_REALTIME_DATABASE_URL = 'https://portfolio-shahar-b96a5-default-rtdb.europe-west1.firebasedatabase.app';
+const COLLECTION_NAME = 'your_collection_name'; // Replace with your Firestore collection name
 
 const axiosInstance = axios.create({
-    baseURL: BASE_URL,
+    baseURL: FIREBASE_REALTIME_DATABASE_URL,
     headers: {
         'Content-Type': 'application/json'
     }
@@ -12,8 +12,7 @@ const axiosInstance = axios.create({
 
 export const postData = async (path: string, data: any) => {
     try {
-        const response = await axiosInstance.post(`${path}.json`, data);
-        return response.data;
+        const responseFirebaseRealtimeDB = await axiosInstance.post(`${path}.json`, data);
     } catch (error) {
         console.error('Error posting data:', error);
         throw error;

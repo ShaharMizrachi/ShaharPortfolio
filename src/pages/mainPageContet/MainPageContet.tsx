@@ -156,7 +156,7 @@ const MainPageContet = () => {
                 className={`projectsContainer ${isProjectsInView ? 'slide-in' : ''}`}
                 ref={projectsContainerRef}
             >
-                <ProjectsBoxsDataSent /> {/* Component with project boxes */}
+                <ProjectsBoxsDataSent />
             </div>
             <div className={`ContactMeContainer ${isContactInView ? 'slide-inContactMe' : ''}`} ref={contactMeRef}>
                 <ContactMe />

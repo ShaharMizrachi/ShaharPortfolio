@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import FullButton from '../../components/ui/fullButton/FullButton';
 import CustomTextField from '../../components/ui/CustomTextField';
 import { postData } from '../../components/api/api';
+import TruckButton from '../../components/ui/trackButton/TruckButton';
 
 const ContactMe = () => {
     const [phoneError, setPhoneError] = useState<boolean>(false);
@@ -43,10 +44,12 @@ const ContactMe = () => {
     const submit = async () => {
         try {
             const date = new Date;
+
             const updatedContactInfo = {
                 ...contactInfo,
                 date: date.toString(),
             };
+
             const response = await postData('/contacts', updatedContactInfo);
             console.log('Data saved successfully:', response);
         } catch (error) {
@@ -99,7 +102,8 @@ const ContactMe = () => {
                 />
             </div>
             <div className='submitButtonContainer commenProperties'>
-                <FullButton name={'Submit'} onClick={submit} />
+                {/* <FullButton name={'Submit'} onClick={submit} /> */}
+                <div><TruckButton name='Submit' onClick={submit} /></div>
             </div>
         </>
     );

@@ -20,6 +20,7 @@ import ProjectBox from '../../components/ui/projectBox/ProjectBox';
 import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
 import ContactMe from '../contactMe/ContactMe';
 import UseIntersectionObserverSlide from '../../components/hooks/UseIntersectionObserverSlide';
+import TruckButton from '../../components/ui/trackButton/TruckButton';
 
 interface MailMeButtonProps {
     email: string;

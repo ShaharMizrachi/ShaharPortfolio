@@ -63,7 +63,7 @@ const TruckButton: React.FC<{ name: string, onClick: () => void }> = ({ name, on
                                     .timeline({
                                         onComplete() {
                                             button.classList.add('done');
-                                            button.disabled = true;
+                                            button.disabled = false;
                                         },
                                     })
                                     .to(truck, {

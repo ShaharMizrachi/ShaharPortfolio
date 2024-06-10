@@ -104,25 +104,6 @@ const MainPageContet = () => {
 
 
 
-
-
-
-    const sendingEmail = () => {
-
-
-        const mailtoLink = `mailto:shaharmm22@gmail.com?${new URLSearchParams({
-            subject: "Hello Shahar from portfolio",
-            body: "",
-        }).toString()}`;
-
-        // Navigate to the mailto link
-        // window.location.href = mailtoLink;
-        window.open(mailtoLink, '_self');
-        // window.open('mailto:mailto:shaharmm22@gmail.com?subject=Subject&body=Body%20goes%20here')
-
-    };
-
-
     // Scroll to ContactMe section
     const scrollToContactMe = () => {
         if (contactMeRef.current) {

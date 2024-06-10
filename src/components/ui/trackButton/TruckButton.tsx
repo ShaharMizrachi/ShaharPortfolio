@@ -63,6 +63,7 @@ const TruckButton: React.FC<{ name: string, onClick: () => void }> = ({ name, on
                                     .timeline({
                                         onComplete() {
                                             button.classList.add('done');
+                                            button.disabled = true;
                                         },
                                     })
                                     .to(truck, {
@@ -122,7 +123,7 @@ const TruckButton: React.FC<{ name: string, onClick: () => void }> = ({ name, on
         <button ref={buttonRef} className="truck-button">
             <span className="default">{name}</span>
             <span className="success">
-                Order Placed
+                Thanks :)
                 <svg viewBox="0 0 12 10">
                     <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                 </svg>

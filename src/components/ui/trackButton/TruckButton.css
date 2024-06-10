@@ -33,6 +33,8 @@
   transform-style: preserve-3d;
   transform: rotateX(var(--rx, 0deg)) translateZ(0);
   transition: transform 0.5s, border-radius 0.3s linear var(--br-d, 0s);
+  --color: #73cdc2;
+  border: 2px solid #73cdc2;
 }
 .truck-button:before,
 .truck-button:after {
@@ -236,6 +238,8 @@
   --rx: 0deg;
   --br: 5px;
   --br-d: 0.2s;
+  --color: #73cdc2;
+  border: 2px solid #73cdc2;
 }
 .truck-button.animation.done .success {
   --o: 1;

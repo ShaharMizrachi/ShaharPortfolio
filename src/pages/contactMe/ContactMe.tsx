@@ -7,7 +7,6 @@ import { postData } from '../../components/api/api';
 import TruckButton from '../../components/ui/trackButton/TruckButton';
 
 const ContactMe = () => {
-    const [phoneError, setPhoneError] = useState<boolean>(false);
     const [contactInfo, setContactInfo] = useState({
         name: '',
         phone: '',
@@ -15,7 +14,8 @@ const ContactMe = () => {
         message: '',
         date: ''
     });
-    const [erorFields, setErorFields] = useState<{ [key: string]: boolean }>(
+
+    const [errorFields, seterrorFields] = useState<{ [key: string]: boolean }>(
         {
             name: false,
             phone: false,
@@ -24,42 +24,32 @@ const ContactMe = () => {
         }
     )
 
-    // Generalized function to update state based on field name
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
-
-        console.log(name)
-        console.log(value);
-        // if (name === 'phone') {
-        //     validatePhoneNumber(value)
-        // }
-        let erorFIledSingle = false;
-
+        let erorfieldsSingle = false;
         switch (name) {
             case 'name':
                 const nameParts = value.trim().split(/\s+/);
-                erorFIledSingle = !(nameParts.length >= 2 && nameParts.every(part => part.length >= 2));
+                erorfieldsSingle = !(nameParts.length >= 2 && nameParts.every(part => part.length >= 2));
                 break;
             case 'phone':
                 const phoneRegex = /^0\d{9}$/;
-                erorFIledSingle = !phoneRegex.test(value)
+                erorfieldsSingle = !phoneRegex.test(value)
                 break;
             case 'email':
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                erorFIledSingle = !emailRegex.test(value)
+                erorfieldsSingle = !emailRegex.test(value)
                 break;
             case 'message':
                 const words = value.trim().split(/\s+/);
-                erorFIledSingle = !(words.length >= 3);
+                erorfieldsSingle = !(words.length >= 3);
                 break;
         }
-        console.log('====================================');
-        console.log(erorFIledSingle);
-        console.log('====================================');
 
-        setErorFields((prev) => ({
+
+        seterrorFields((prev) => ({
             ...prev,
-            [name]: erorFIledSingle,
+            [name]: erorfieldsSingle,
         }));
 
 
@@ -68,18 +58,6 @@ const ContactMe = () => {
             [name]: value,
         }));
     };
-
-
-    // const validatePhoneNumber = (phoneValue: string) => {
-    //     const phoneRegex = /^0\d{9}$/;
-    //     setPhoneError(!phoneRegex.test(phoneValue));
-    // }
-
-
-    // const filedsValidate = (phoneValue: string) => {
-    //     const phoneRegex = /^0\d{9}$/;
-    //     setPhoneError(phoneRegex.test(phoneValue));
-    // }
 
 
     const submit = async () => {
@@ -93,6 +71,13 @@ const ContactMe = () => {
 
             const response = await postData('/contacts', updatedContactInfo);
             console.log('Data saved successfully:', response);
+            setContactInfo({
+                name: '',
+                phone: '',
+                email: '',
+                message: '',
+                date: ''
+            });
         } catch (error) {
             console.error('Error saving contact info:', error);
         }
@@ -102,7 +87,7 @@ const ContactMe = () => {
     return (
         <>
             <h2 className='title commenProperties'>Contact Me</h2>
-            <div className='shortFiledsContainer commenProperties'>
+            <div className='shortfieldssContainer commenProperties'>
                 <CustomTextField
                     required
                     id="outlined-required"
@@ -110,6 +95,9 @@ const ContactMe = () => {
                     name="name"
                     value={contactInfo.name}
                     onChange={handleInputChange}
+                    error={errorFields['name']}
+                    helperText={errorFields['name'] ? 'Invalid name' : ''}
+
                 />
                 <CustomTextField
                     required
@@ -118,8 +106,8 @@ const ContactMe = () => {
                     name="phone"
                     value={contactInfo.phone}
                     onChange={handleInputChange}
-                    error={phoneError}
-                    helperText={erorFields['phone'] ? 'Invalid phone number' : ''}
+                    error={errorFields['phone']}
+                    helperText={errorFields['phone'] ? 'Invalid phone number' : ''}
                 />
                 <CustomTextField
                     required
@@ -128,6 +116,9 @@ const ContactMe = () => {
                     name="email"
                     value={contactInfo.email}
                     onChange={handleInputChange}
+                    error={errorFields['email']}
+                    helperText={errorFields['email'] ? 'Invalid email' : ''}
+
                 />
             </div>
             <div className='messageTextConatiner commenProperties'>
@@ -140,10 +131,12 @@ const ContactMe = () => {
                     rows={4}
                     value={contactInfo.message}
                     onChange={handleInputChange}
+                    error={errorFields['message']}
+                    helperText={errorFields['message'] ? 'Message must contain at least 10 words' : ''}
+
                 />
             </div>
             <div className='submitButtonContainer commenProperties'>
-                {/* <FullButton name={'Submit'} onClick={submit} /> */}
                 <div><TruckButton name='Submit' onClick={submit} /></div>
             </div>
         </>

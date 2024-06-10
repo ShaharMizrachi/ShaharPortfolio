@@ -12,6 +12,7 @@ const CustomTextField = styled(TextField)({
         '&.Mui-focused fieldset': {
             borderColor: '#73CDC2', // Focused border color
         },
+
         '& .MuiInputBase-input::placeholder': {
             color: '#FFFFFF', // Placeholder text color
         },

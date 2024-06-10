@@ -20,6 +20,7 @@ import ProjectBox from '../../components/ui/projectBox/ProjectBox';
 import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
 import ContactMe from '../contactMe/ContactMe';
 import UseIntersectionObserverSlide from '../../components/hooks/UseIntersectionObserverSlide';
+import TruckButton from '../../components/ui/trackButton/TruckButton';
 
 interface MailMeButtonProps {
     email: string;
@@ -101,25 +102,6 @@ const MainPageContet = () => {
     UseIntersectionObserverSlide(projectsContainerRef, setIsProjectsInView, { threshold: 0.1 });
     UseIntersectionObserverSlide(contactMeRef, setIsContactInView, { threshold: 0.1 });
 
-
-
-
-
-
-    const sendingEmail = () => {
-
-
-        const mailtoLink = `mailto:shaharmm22@gmail.com?${new URLSearchParams({
-            subject: "Hello Shahar from portfolio",
-            body: "",
-        }).toString()}`;
-
-        // Navigate to the mailto link
-        // window.location.href = mailtoLink;
-        window.open(mailtoLink, '_self');
-        // window.open('mailto:mailto:shaharmm22@gmail.com?subject=Subject&body=Body%20goes%20here')
-
-    };
 
 
     // Scroll to ContactMe section

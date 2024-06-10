@@ -15,6 +15,14 @@ const ContactMe = () => {
         message: '',
         date: ''
     });
+    const [erorFields, setErorFields] = useState<{ [key: string]: boolean }>(
+        {
+            name: false,
+            phone: false,
+            email: false,
+            message: false,
+        }
+    )
 
     // Generalized function to update state based on field name
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -22,9 +30,37 @@ const ContactMe = () => {
 
         console.log(name)
         console.log(value);
-        if (name === 'phone') {
-            validatePhoneNumber(value)
+        // if (name === 'phone') {
+        //     validatePhoneNumber(value)
+        // }
+        let erorFIledSingle = false;
+
+        switch (name) {
+            case 'name':
+                const nameParts = value.trim().split(/\s+/);
+                erorFIledSingle = !(nameParts.length >= 2 && nameParts.every(part => part.length >= 2));
+                break;
+            case 'phone':
+                const phoneRegex = /^0\d{9}$/;
+                erorFIledSingle = !phoneRegex.test(value)
+                break;
+            case 'email':
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                erorFIledSingle = !emailRegex.test(value)
+                break;
+            case 'message':
+                const words = value.trim().split(/\s+/);
+                erorFIledSingle = !(words.length >= 3);
+                break;
         }
+        console.log('====================================');
+        console.log(erorFIledSingle);
+        console.log('====================================');
+
+        setErorFields((prev) => ({
+            ...prev,
+            [name]: erorFIledSingle,
+        }));
 
 
         setContactInfo((prev) => ({
@@ -34,11 +70,16 @@ const ContactMe = () => {
     };
 
 
-    const validatePhoneNumber = (phoneValue: string) => {
-        const phoneRegex = /^0\d{9}$/;
-        setPhoneError(phoneRegex.test(phoneValue));
-    }
+    // const validatePhoneNumber = (phoneValue: string) => {
+    //     const phoneRegex = /^0\d{9}$/;
+    //     setPhoneError(!phoneRegex.test(phoneValue));
+    // }
 
+
+    // const filedsValidate = (phoneValue: string) => {
+    //     const phoneRegex = /^0\d{9}$/;
+    //     setPhoneError(phoneRegex.test(phoneValue));
+    // }
 
 
     const submit = async () => {
@@ -78,7 +119,7 @@ const ContactMe = () => {
                     value={contactInfo.phone}
                     onChange={handleInputChange}
                     error={phoneError}
-                    helperText={phoneError ? 'Invalid phone number' : ''}
+                    helperText={erorFields['phone'] ? 'Invalid phone number' : ''}
                 />
                 <CustomTextField
                     required

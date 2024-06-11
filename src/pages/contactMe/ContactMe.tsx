@@ -137,7 +137,7 @@ const ContactMe = () => {
                 />
             </div>
             <div className='submitButtonContainer commenProperties'>
-                <div><TruckButton name='Submit' onClick={submit} /></div>
+                <div><TruckButton name='Submit' onClick={submit} disabled={Object.values(errorFields).some(field => field)} /></div>
             </div>
         </>
     );

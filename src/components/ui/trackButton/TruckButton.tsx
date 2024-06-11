@@ -4,13 +4,14 @@ import './TruckButton.css';
 
 
 
-const TruckButton: React.FC<{ name: string, onClick: () => void }> = ({ name, onClick }) => {
+const TruckButton: React.FC<{ name: string, onClick: () => void, disabled?: boolean }> = ({ name, onClick, disabled = true }) => {
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         const button = buttonRef.current;
 
         const handleClick = async (e: MouseEvent) => {
+            if (disabled) return;
             onClick();
             e.preventDefault();
 

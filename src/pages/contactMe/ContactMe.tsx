@@ -1,10 +1,11 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import './ContactMe.css';
 import TextField from '@mui/material/TextField';
 import FullButton from '../../components/ui/fullButton/FullButton';
 import CustomTextField from '../../components/ui/CustomTextField';
 import { postData } from '../../components/api/api';
 import TruckButton from '../../components/ui/trackButton/TruckButton';
+import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 
 const ContactMe = () => {
     const [contactInfo, setContactInfo] = useState({
@@ -83,6 +84,14 @@ const ContactMe = () => {
         }
     };
 
+    const emptyFieldsCheck = () => {
+        return (
+            contactInfo.email === '' ||
+            contactInfo.message === '' ||
+            contactInfo.name === '' ||
+            contactInfo.phone === ''
+        );
+    }
 
     return (
         <>
@@ -137,7 +146,7 @@ const ContactMe = () => {
                 />
             </div>
             <div className='submitButtonContainer commenProperties'>
-                <div><TruckButton name='Submit' onClick={submit} disabled={Object.values(errorFields).some(field => field)} /></div>
+                <div><TruckButton name='Submit' onClick={submit} disabled={emptyFieldsCheck() || (Object.values(errorFields).some(field => field))} /></div>
             </div>
         </>
     );

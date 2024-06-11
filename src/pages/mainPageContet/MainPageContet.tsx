@@ -21,6 +21,7 @@ import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/Proje
 import ContactMe from '../contactMe/ContactMe';
 import UseIntersectionObserverSlide from '../../components/hooks/UseIntersectionObserverSlide';
 import TruckButton from '../../components/ui/trackButton/TruckButton';
+import GlowingButton from '../../components/ui/glowingButton/GlowingButton';
 
 interface MailMeButtonProps {
     email: string;
@@ -130,6 +131,9 @@ const MainPageContet = () => {
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='computerGuyPic' />
             </div>
+            {/* <div>
+                <GlowingButton />
+            </div> */}
             <div className='skills'>
                 Skills
             </div>

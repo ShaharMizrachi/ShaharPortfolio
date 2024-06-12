@@ -141,3 +141,39 @@
   animation: slideInFromLeftContactMe 3s ease-in-out;
   opacity: 1 !important; /* Become visible during animation */
 }
+
+/* For screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+  .profileContainer {
+    width: 100%;
+  }
+
+  .headLine {
+    font-size: xx-large; /* Change to appropriate font size for smaller screens */
+  }
+
+  .seconderyHeadLine {
+    font-size: large; /* Change to appropriate font size for smaller screens */
+  }
+
+  .descriptionText {
+    font-size: xx-small; /* Change to appropriate font size for smaller screens */
+    min-height: auto; /* Adjust min-height if needed */
+  }
+
+  .buttonsContainer {
+    width: 70%; /* Adjust width of buttons container for smaller screens */
+  }
+
+  .computerGuyPic {
+    height: 20vh; /* Adjust height of image for smaller screens */
+    width: 15vh; /* Adjust width of image for smaller screens */
+    margin-top: 3vh; /* Adjust margin for smaller screens */
+  }
+
+  .skills {
+    font-size: large; /* Change to appropriate font size for smaller screens */
+  }
+
+  /* Add more styles as needed for smaller screens */
+}

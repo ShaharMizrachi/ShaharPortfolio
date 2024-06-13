@@ -5,3 +5,13 @@
   justify-content: center;
   margin: 0;
 }
+
+/* For screens with max-width: 600px and max-height: 844px */
+@media only screen and (max-width: 600px) and (max-height: 844px) {
+  .background {
+    height: auto; /* Adjusted height for smaller screens */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center content vertically */
+  }
+}

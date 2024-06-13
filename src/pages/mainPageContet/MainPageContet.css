@@ -117,9 +117,6 @@
   border-radius: 20%;
   padding: 10%;
   margin-top: 30%;
-}
-
-.ContactMeContainer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap; /* Allow items to wrap */
@@ -142,38 +139,120 @@
   opacity: 1 !important; /* Become visible during animation */
 }
 
-/* For screens smaller than 600px */
-@media only screen and (max-width: 600px) {
+/* For iPhone 12 Pro size */
+@media only screen and (max-width: 600px) and (max-height: 844px) {
   .profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    margin: 5% 4%;
   }
 
   .headLine {
-    font-size: xx-large; /* Change to appropriate font size for smaller screens */
+    color: #73cdc2;
+    font-size: xx-large;
+    font-weight: 540;
+    margin-top: 3%;
   }
 
   .seconderyHeadLine {
-    font-size: large; /* Change to appropriate font size for smaller screens */
+    color: aliceblue;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
   }
 
   .descriptionText {
-    font-size: xx-small; /* Change to appropriate font size for smaller screens */
-    min-height: auto; /* Adjust min-height if needed */
+    color: azure;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 150%;
+    margin-top: 7%;
+    min-height: auto;
   }
 
   .buttonsContainer {
-    width: 70%; /* Adjust width of buttons container for smaller screens */
+    margin-top: 5%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 8%;
+    width: 70%;
+    flex-grow: 0;
+    /* flex-shrink: 0; */
   }
 
   .computerGuyPic {
-    height: 20vh; /* Adjust height of image for smaller screens */
-    width: 15vh; /* Adjust width of image for smaller screens */
-    margin-top: 3vh; /* Adjust margin for smaller screens */
+    height: 20vh;
+    width: 15vh;
+    margin-top: 25%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
   }
 
   .skills {
-    font-size: large; /* Change to appropriate font size for smaller screens */
+    font-size: large;
+    color: #73cdc2;
+    text-decoration-line: underline;
+    margin-top: 10%;
   }
 
-  /* Add more styles as needed for smaller screens */
+  /* Define the keyframe animation */
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* Apply the animation when needed */
+  .projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+  }
+
+  /* Add this class to trigger the slide-in animation */
+  .projectsContainer.slide-in {
+    animation: slideInFromLeft 3s ease-in-out;
+    opacity: 1;
+  }
+
+  .projectsContainer {
+    margin-top: 20%;
+    display: flex;
+    width: 100%;
+  }
+
+  /* Parallax effect */
+  .computerGuyPic {
+    --f: 0.1;
+    --r: 10px;
+
+    --_f: calc(100% * var(--f) / (1 + var(--f)));
+    --_a: calc(90deg * var(--f));
+    aspect-ratio: calc(1 + var(--f));
+    object-fit: cover;
+    clip-path: inset(0 var(--_f) 0 0 round var(--r));
+    transform: perspective(400px) var(--_t, rotateY(var(--_a)));
+    transition: 0.9s;
+    cursor: pointer;
+  }
+
+  .computerGuyPic:hover {
+    clip-path: inset(0 0 0 var(--_f) round var(--r));
+    --_t: translateX(calc(-1 * var(--_f))) rotateY(calc(-1 * var(--_a)));
+  }
+
+  /* Contact me container */
+  .ContactMeContainer {
+    margin-top: 250%;
+  }
 }

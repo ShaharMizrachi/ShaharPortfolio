@@ -48,3 +48,57 @@ img {
   align-self: center;
   justify-self: center;
 }
+
+/* For iPhone 12 Pro size */
+@media only screen and (max-width: 600px) and (max-height: 844px) {
+  .carousel-container {
+    width: 100%;
+    perspective: 1500px;
+    height: 70px; /* Adjust height for smaller screens */
+    justify-content: center;
+  }
+
+  .carousel {
+    width: 2%;
+    height: 70px; /* Adjust height for smaller screens */
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 30s infinite linear;
+    animation-play-state: running;
+    display: flex;
+  }
+
+  .carousel:hover {
+    animation-play-state: paused; /* Pause the animation on hover */
+  }
+
+  .carousel-item {
+    width: 70px; /* Adjust width for smaller screens */
+    height: 70px; /* Adjust height for smaller screens */
+    background-color: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(calc(var(--i) * 72deg)) translateZ(70px); /* Adjust translateZ and rotateY values for smaller screens */
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  img {
+    width: 70px; /* Adjust width for smaller screens */
+    height: 70px; /* Adjust height for smaller screens */
+    align-self: center;
+    justify-self: center;
+  }
+}

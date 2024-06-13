@@ -27,3 +27,46 @@
   padding: 1%;
   margin-top: 3%;
 }
+
+/* For screens with max-width: 600px and max-height: 844px */
+@media only screen and (max-width: 600px) and (max-height: 844px) {
+  .commenProperties {
+    color: #e5e7eb;
+  }
+
+  .ContactTitle {
+    margin-top: 1vh; /* Adjusted margin-top for smaller screens */
+    min-height: 5vh; /* Adjusted minimum height for dynamic content */
+    text-decoration-line: underline;
+  }
+
+  .shortFiledsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .shortFiledsContainer .MuiTextField-root {
+    padding: 1%;
+    width: 100%;
+  }
+
+  .messageTextConatiner {
+    padding: 1%;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5%;
+  }
+
+  .messageTextConatiner .MuiTextField-root {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .submitButtonContainer {
+    padding: 1%;
+    margin-top: 4%; /* Adjusted margin-top for smaller screens */
+  }
+  .shortfieldssContainer .MuiTextField-root {
+    margin-bottom: 5%; /* Adjust margin-bottom as needed */
+  }
+}

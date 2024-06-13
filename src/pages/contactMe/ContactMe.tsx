@@ -87,62 +87,57 @@ const ContactMe = () => {
 
     return (
         <>
-            <h2 className='title commenProperties'>Contact Me</h2>
-            <Grid container spacing={3} className='shortFieldsContainer commenProperties'>
-                <Grid item xs={12} sm={6} md={4} lg={4}>
-                    <CustomTextField
-                        required
-                        id="outlined-required"
-                        label="Full Name"
-                        name="name"
-                        value={contactInfo.name}
-                        onChange={handleInputChange}
-                        error={errorFields['name']}
-                        helperText={errorFields['name'] ? 'Invalid name' : ''}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={4}>
-                    <CustomTextField
-                        required
-                        id="outlined-required"
-                        label="Phone"
-                        name="phone"
-                        value={contactInfo.phone}
-                        onChange={handleInputChange}
-                        error={errorFields['phone']}
-                        helperText={errorFields['phone'] ? 'Invalid phone number' : ''}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={4}>
-                    <CustomTextField
-                        required
-                        id="outlined-required"
-                        label="Email"
-                        name="email"
-                        value={contactInfo.email}
-                        onChange={handleInputChange}
-                        error={errorFields['email']}
-                        helperText={errorFields['email'] ? 'Invalid email' : ''}
-                    />
-                </Grid>
-                <Grid item xs={12} lg={12} className='messageTextContainer'>
-                    <CustomTextField
-                        required
-                        id="outlined-multiline-static"
-                        label="Message"
-                        name="message"
-                        multiline
-                        rows={4}
-                        value={contactInfo.message}
-                        onChange={handleInputChange}
-                        error={errorFields['message']}
-                        helperText={errorFields['message'] ? 'Message must contain at least 10 words' : ''}
-                    />
-                </Grid>
-                <Grid item xs={12} className='submitButtonContainer'>
-                    <TruckButton name='Submit' onClick={submit} disabled={emptyFieldsCheck() || (Object.values(errorFields).some(field => field))} />
-                </Grid>
-            </Grid>
+            <h2 className='ContactTitle commenProperties'>Contact Me</h2>
+            <div className='shortfieldssContainer commenProperties'>
+                <CustomTextField
+                    required
+                    id="outlined-required"
+                    label="Full Name"
+                    name="name"
+                    value={contactInfo.name}
+                    onChange={handleInputChange}
+                    error={errorFields['name']}
+                    helperText={errorFields['name'] ? 'Invalid name' : ''}
+                />
+                <CustomTextField
+                    required
+                    id="outlined-required"
+                    label="Phone"
+                    name="phone"
+                    value={contactInfo.phone}
+                    onChange={handleInputChange}
+                    error={errorFields['phone']}
+                    helperText={errorFields['phone'] ? 'Invalid phone number' : ''}
+                />
+                <CustomTextField
+                    required
+                    id="outlined-required"
+                    label="Email"
+                    name="email"
+                    value={contactInfo.email}
+                    onChange={handleInputChange}
+                    error={errorFields['email']}
+                    helperText={errorFields['email'] ? 'Invalid email' : ''}
+                />
+            </div>
+            <div className='messageTextConatiner commenProperties'>
+                <CustomTextField
+                    required
+                    id="outlined-multiline-static"
+                    label="Message"
+                    name="message"
+                    multiline
+                    rows={4}
+                    value={contactInfo.message}
+                    onChange={handleInputChange}
+                    error={errorFields['message']}
+                    helperText={errorFields['message'] ? 'Message must contain at least 10 words' : ''}
+
+                />
+            </div>
+            <div className='submitButtonContainer commenProperties'>
+                <TruckButton name='Submit' onClick={submit} disabled={emptyFieldsCheck() || (Object.values(errorFields).some(field => field))} />
+            </div>
         </>
     );
 };

@@ -18,3 +18,14 @@ export const postData = async (path: string, data: any) => {
         throw error;
     }
 };
+
+export const incrementVisitorCount = async () => {
+    try {
+        const response = await axiosInstance.get('/visitorCount.json');
+        const currentCount = response.data !== null ? response.data : 0
+        await axiosInstance.put('/visitorCount.json', currentCount + 1);
+    } catch (error) {
+        console.error('Error incrementing visitor count:', error);
+        throw error;
+    }
+};

@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import './MainPageContet.css';
+
+import './MainPageContent.css';
+
 
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 import FullButton from '../../components/ui/fullButton/FullButton';
@@ -30,7 +32,7 @@ interface MailMeButtonProps {
 }
 
 
-const MainPageContet = () => {
+const MainPageContent = () => {
     const [typedText, setTypedText] = useState<string>('');
     const [textIndex, setTextIndex] = useState<number>(0);
     const [charIndex, setCharIndex] = useState<number>(0);
@@ -115,11 +117,6 @@ const MainPageContet = () => {
 
     return (
         <div className='profileContainer'>
-            <div className='adminBUttonContainer'>
-                <GlowingButton />
-                {/* admin button  */}
-
-            </div>
             <div className='headLine'>
                 Shahar Mizrachi
             </div>
@@ -156,4 +153,4 @@ const MainPageContet = () => {
     );
 };
 
-export default MainPageContet;
+export default MainPageContent;

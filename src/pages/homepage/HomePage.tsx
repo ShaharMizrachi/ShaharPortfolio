@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import './HomePage.css'
-import MainPageContet from '../mainPageContet/MainPageContet'
 import UserCounter from '../../utils/counter'
+import MainPageContent from '../mainPageContent/MainPageContent'
+
+
 
 export const HomePage = () => {
 
@@ -9,7 +11,7 @@ export const HomePage = () => {
     return (
         <div className='background'>
             <UserCounter />
-            <MainPageContet />
+            <MainPageContent />
         </div>
     )
 }

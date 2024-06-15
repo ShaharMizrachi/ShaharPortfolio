@@ -9,14 +9,21 @@ const generateUniqueIdentifier = (): string => {
 
 const countToDb = async () => {
     try {
-        const localStorageKey: string = 'uniqueUserIdentifier';
-        let userIdentifier = localStorage.getItem(localStorageKey);
+        const storageKey: string = 'uniqueUserIdentifier';
+        let userIdentifierFromLocalStorage = localStorage.getItem(storageKey);
+        let userIdentifierFromSessionStorage = sessionStorage.getItem(storageKey)
+        let userIdentifier: string;
 
+        if (!userIdentifierFromSessionStorage) {
+            if (!userIdentifierFromLocalStorage) {
+                userIdentifier = generateUniqueIdentifier();
+                localStorage.setItem(storageKey, userIdentifier);
+            }
+            else {
+                userIdentifier = userIdentifierFromLocalStorage;
+            }
+            sessionStorage.setItem(storageKey, userIdentifier)
 
-        if (!userIdentifier) {
-            // Generate a new unique identifier and store it in local storage
-            userIdentifier = generateUniqueIdentifier();
-            localStorage.setItem(localStorageKey, userIdentifier);
             const date = new Date();
             const formatter = new Intl.DateTimeFormat('he-IL', {
                 timeZone: 'Asia/Jerusalem',
@@ -32,8 +39,9 @@ const countToDb = async () => {
             const localTime = formatter.format(date);
             const response = await postData('/visitorCount', { VisitorId: userIdentifier, VisitorDate: localTime });
             console.log('Visitor counted:', response);
+            console.log('userIdentifier:', userIdentifier)
         }
-        console.log('userIdentifier:', userIdentifier)
+
     } catch (error) {
         console.error("Visitor did not count:", error);
     }

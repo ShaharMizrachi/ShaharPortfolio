@@ -6,6 +6,11 @@
   width: 50%;
 }
 
+.adminBUttonContainer {
+  align-self: self-end;
+  margin-top: 3%;
+}
+
 .headLine {
   color: #73cdc2;
   font-size: xxx-large;
@@ -147,6 +152,10 @@
     align-items: center;
     width: 100%;
     margin: 5% 4%;
+  }
+
+  .adminBUttonContainer {
+    margin-right: 2%;
   }
 
   .headLine {

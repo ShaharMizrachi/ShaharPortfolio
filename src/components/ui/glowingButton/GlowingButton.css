@@ -52,7 +52,7 @@
   position: relative;
   isolation: isolate;
   box-shadow: 0 2px 3px 1px hsl(var(--glow-hue) 50% 20% / 50%), inset 0 -10px 20px -10px hsla(var(--shadow-hue), 10%, 90%, 95%);
-  border-radius: 0.66em;
+  border-radius: 0.5em;
   scale: 1;
   transition: all var(--spring-duration) var(--spring-easing);
 }

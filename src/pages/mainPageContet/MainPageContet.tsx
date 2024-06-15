@@ -115,6 +115,11 @@ const MainPageContet = () => {
 
     return (
         <div className='profileContainer'>
+            <div className='adminBUttonContainer'>
+                <GlowingButton />
+                {/* admin button  */}
+
+            </div>
             <div className='headLine'>
                 Shahar Mizrachi
             </div>

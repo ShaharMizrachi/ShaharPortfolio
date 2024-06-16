@@ -4,6 +4,7 @@ import UserCounter from '../../utils/counter'
 import MainPageContent from '../mainPageContent/MainPageContent'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from '../loginPage/LogInPage'
+import AdminDashboard from '../adminDashboard/AdminDashboard'
 
 
 

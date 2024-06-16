@@ -8,15 +8,19 @@
 .shortFiledsContainer {
   display: inline-flex;
 }
-
+/* .shortfieldssContainer {
+  display: flex;
+} */
 .shortFiledsContainer .MuiTextField-root {
   padding: 1%;
+  display: flex;
+  flex-direction: row;
 }
 
 .messageTextConatiner {
-  padding: 1%;
   width: 100%;
   max-width: 100%;
+  margin-top: 1%;
 }
 
 .messageTextConatiner .MuiTextField-root {
@@ -27,7 +31,6 @@
   padding: 1%;
   margin-top: 3%;
 }
-
 /* For screens with max-width: 600px and max-height: 844px */
 @media only screen and (max-width: 600px) and (max-height: 844px) {
   .commenProperties {
@@ -35,8 +38,8 @@
   }
 
   .ContactTitle {
-    margin-top: 1vh; /* Adjusted margin-top for smaller screens */
-    min-height: 5vh; /* Adjusted minimum height for dynamic content */
+    margin-top: 1vh;
+    min-height: 5vh;
     text-decoration-line: underline;
   }
 

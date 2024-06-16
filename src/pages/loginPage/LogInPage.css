@@ -1,11 +1,17 @@
 .loginContainer {
   display: flex;
-  justify-self: center;
   margin-top: 20%;
   background-color: #1e293b;
   border: solid 2px #73cdc2;
   border-radius: 20%;
   padding: 10%;
   height: 7%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginFields {
+  display: flex;
   flex-direction: column;
 }

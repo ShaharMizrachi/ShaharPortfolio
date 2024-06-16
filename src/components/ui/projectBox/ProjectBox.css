@@ -4,6 +4,10 @@
   text-decoration: underline 15%;
 }
 
+.projectBox a {
+  text-decoration: none;
+}
+
 .technologiesUsed,
 .description {
   color: #e5e7eb;

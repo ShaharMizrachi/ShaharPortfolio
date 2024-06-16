@@ -12,3 +12,16 @@
 
 .appContainer {
 }
+
+/* App.css */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; /* Optional: Hide horizontal scrollbars */
+}
+
+.appContainer {
+  max-width: 100vw;
+  overflow-x: hidden; /* Ensure no horizontal scrollbars */
+}

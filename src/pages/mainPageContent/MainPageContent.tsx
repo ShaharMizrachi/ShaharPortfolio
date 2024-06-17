@@ -25,6 +25,7 @@ import UseIntersectionObserverSlide from '../../components/hooks/UseIntersection
 import TruckButton from '../../components/ui/trackButton/TruckButton';
 import GlowingButton from '../../components/ui/glowingButton/GlowingButton';
 
+
 interface MailMeButtonProps {
     email: string;
     subject?: string;
@@ -96,7 +97,7 @@ const MainPageContent = () => {
 
     const displayText = typedText + (showCursor ? '|' : '&nbsp;'); // Text with cursor
 
-    const cvFilePath = '../../assets/CV-Shahar.pdf';
+    // const cvFilePath = '../../assets/CV-Shahar.pdf';
 
 
 
@@ -125,7 +126,7 @@ const MainPageContent = () => {
             </div>
             <div className="descriptionText" dangerouslySetInnerHTML={{ __html: displayText }} />
             <div className='buttonsContainer'>
-                <a href={cvFilePath} download={"CV-Shahar.pdf"}>
+                <a href={"/CV-Shahar.pdf"} download={"CV-Shahar.pdf"}>
                     <EmptyButton name='Download CV' />
                 </a>
                 <FullButton name='Contact Me' onClick={scrollToContactMe} />
@@ -133,9 +134,6 @@ const MainPageContent = () => {
             <div>
                 <img src={computerGuyGif} alt="My GIF" className='computerGuyPic' />
             </div>
-            {/* <div>
-                <GlowingButton />
-            </div> */}
             <div className='skills'>
                 Skills
             </div>

@@ -3,7 +3,6 @@ import ProjectBox from '../projectBox/ProjectBox'
 import './ProjectsBoxsDataSent.css'
 
 const ProjectsBoxsDataSent = () => {
-    //React,TypeScript, Asp .net Core,SQL
     const projectsArray: string[][] = [
         ['Portfolio', 'Showcasing my projects, skills, and journey as a developer, this personal portfolio reflects my passion for coding and technology.', 'React and TypeScrip', 'https://github.com/ShaharMizrachi/ShaharPortfolio']
         , ['GoGood', 'Application designed to bridge the gap between professionals and individuals seeking assistance in real-time, based on proximity. Whether you are looking for a plumber, a tutor, or any other type of expert, GoGood connects you with a trusted professional within your vicinity.', 'react native,TypeScript, asp .net core, mysql', 'https://github.com/ShaharMizrachi/GoGood']
@@ -19,10 +18,10 @@ const ProjectsBoxsDataSent = () => {
     const projectBoxes = projectsArray.map((arrayData, index) => (
         <ProjectBox
             key={index}
-            projectTitle={arrayData[0]} // First item
-            description={arrayData[1]} // Second item
-            technologiesUsed={arrayData[2]} // Third item
-            projectLink={arrayData[3]} // Fourth item
+            projectTitle={arrayData[0]}
+            description={arrayData[1]}
+            technologiesUsed={arrayData[2]}
+            projectLink={arrayData[3]}
         />
     ));
 

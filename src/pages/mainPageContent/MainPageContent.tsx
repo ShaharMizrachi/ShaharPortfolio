@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-
 import './MainPageContent.css';
-
-
 import EmptyButton from '../../components/ui/emptyButton/EmptyButton';
 import FullButton from '../../components/ui/fullButton/FullButton';
 import computerGuyGif from '../../assets/computerGuy.jpg';
@@ -18,19 +15,11 @@ import sqlPic from '../../assets/signs/sql2.png';
 import angularPic from '../../assets/signs/the-seo-guide-to-angular.png';
 import pythonPic from '../../assets/signs/python.png';
 import jsPic from '../../assets/signs/js.png';
-import ProjectBox from '../../components/ui/projectBox/ProjectBox';
 import ProjectsBoxsDataSent from '../../components/ui/projectsBoxsDataSent/ProjectsBoxsDataSent';
 import ContactMe from '../contactMe/ContactMe';
 import UseIntersectionObserverSlide from '../../components/hooks/UseIntersectionObserverSlide';
-import TruckButton from '../../components/ui/trackButton/TruckButton';
-import GlowingButton from '../../components/ui/glowingButton/GlowingButton';
 
 
-interface MailMeButtonProps {
-    email: string;
-    subject?: string;
-    body?: string;
-}
 
 
 const MainPageContent = () => {
@@ -38,8 +27,6 @@ const MainPageContent = () => {
     const [textIndex, setTextIndex] = useState<number>(0);
     const [charIndex, setCharIndex] = useState<number>(0);
     const [showCursor, setShowCursor] = useState<boolean>(true);
-
-    // slide in affect 
     const [isProjectsInView, setIsProjectsInView] = useState(false);
     const [isContactInView, setIsContactInView] = useState(false);
     const projectsContainerRef = useRef<HTMLDivElement | null>(null);
@@ -67,7 +54,7 @@ const MainPageContent = () => {
         "I'm committed to delivering high-quality code and thriving in collaborative, cross-functional environments."
     ], []);
 
-    // Typing effect useEffect
+    // Typing effect 
     useEffect(() => {
         const typingInterval = setInterval(() => {
             if (charIndex < textToType[textIndex].length) {
@@ -97,16 +84,9 @@ const MainPageContent = () => {
 
     const displayText = typedText + (showCursor ? '|' : '&nbsp;'); // Text with cursor
 
-    // const cvFilePath = '../../assets/CV-Shahar.pdf';
-
-
-
-
     // Use the custom hook for both elements
     UseIntersectionObserverSlide(projectsContainerRef, setIsProjectsInView, { threshold: 0.1 });
     UseIntersectionObserverSlide(contactMeRef, setIsContactInView, { threshold: 0.1 });
-
-
 
     // Scroll to ContactMe section
     const scrollToContactMe = () => {

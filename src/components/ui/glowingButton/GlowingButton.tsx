@@ -1,4 +1,4 @@
-// GlowingButton.tsx
+
 import React from 'react';
 import './GlowingButton.css';
 

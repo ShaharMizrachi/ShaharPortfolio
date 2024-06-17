@@ -8,9 +8,7 @@
 .shortFiledsContainer {
   display: inline-flex;
 }
-/* .shortfieldssContainer {
-  display: flex;
-} */
+
 .shortFiledsContainer .MuiTextField-root {
   padding: 1%;
   display: flex;
@@ -24,14 +22,14 @@
 }
 
 .messageTextConatiner .MuiTextField-root {
-  width: 100%; /* or any desired width */
+  width: 100%;
 }
 
 .submitButtonContainer {
   padding: 1%;
   margin-top: 3%;
 }
-/* For screens with max-width: 600px and max-height: 844px */
+
 @media only screen and (max-width: 600px) and (max-height: 844px) {
   .commenProperties {
     color: #e5e7eb;
@@ -62,14 +60,14 @@
   }
 
   .messageTextConatiner .MuiTextField-root {
-    width: 100%; /* Full width for smaller screens */
+    width: 100%;
   }
 
   .submitButtonContainer {
     padding: 1%;
-    margin-top: 4%; /* Adjusted margin-top for smaller screens */
+    margin-top: 4%;
   }
   .shortfieldssContainer .MuiTextField-root {
-    margin-bottom: 5%; /* Adjust margin-bottom as needed */
+    margin-bottom: 5%;
   }
 }

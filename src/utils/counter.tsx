@@ -58,18 +58,3 @@ const UserCounter: React.FC = () => {
 export default UserCounter;
 
 
-
-// for pulling the data
-// const dateTimeString = "14.06.2024, 16:45:42"; // Example formatted string
-
-// // Split the date and time parts
-// const [datePart, timePart] = dateTimeString.split(', ');
-
-// // Split the date into day, month, year
-// const [day, month, year] = datePart.split('.').map(Number);
-
-// // Split the time into hours, minutes, seconds
-// const [hours, minutes, seconds] = timePart.split(':').map(Number);
-
-// console.log(`Day: ${day}, Month: ${month}, Year: ${year}`);
-// console.log(`Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`);

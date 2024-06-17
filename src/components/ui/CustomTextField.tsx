@@ -26,7 +26,6 @@ const CustomTextField = styled(TextField)({
     '& .MuiInputLabel-root.Mui-focused': {
         color: '#FFFFFF', // Focused label color
     },
-    // margin: '1% 30% 5% ',
 });
 
 export default CustomTextField

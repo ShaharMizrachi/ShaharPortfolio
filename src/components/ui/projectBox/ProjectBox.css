@@ -14,22 +14,21 @@
   margin-top: 2vh;
 }
 
-/* For screens with max-width: 600px and max-height: 844px */
 @media only screen and (max-width: 600px) and (max-height: 844px) {
   .title {
-    margin-top: 1vh; /* Adjusted margin-top for smaller screens */
-    min-height: 5vh; /* Adjusted minimum height for dynamic content */
+    margin-top: 1vh;
+    min-height: 5vh;
   }
 
   .description {
-    margin-top: 1vh; /* Adjusted margin-top for smaller screens */
-    min-height: 5vh; /* Adjusted minimum height for dynamic content */
+    margin-top: 1vh;
+    min-height: 5vh;
     margin: 0% 4%;
   }
 
   .technologiesUsed {
-    margin-top: 1vh; /* Adjusted margin-top for smaller screens */
-    min-height: 5vh; /* Adjusted minimum height for dynamic content */
+    margin-top: 1vh;
+    min-height: 5vh;
     margin: 10% 2%;
   }
 }

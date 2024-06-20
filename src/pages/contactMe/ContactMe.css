@@ -1,0 +1,73 @@
+.commenProperties {
+  color: #e5e7eb;
+}
+
+.title {
+}
+
+.shortFiledsContainer {
+  display: inline-flex;
+}
+
+.shortFiledsContainer .MuiTextField-root {
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+}
+
+.messageTextConatiner {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 1%;
+}
+
+.messageTextConatiner .MuiTextField-root {
+  width: 100%;
+}
+
+.submitButtonContainer {
+  padding: 1%;
+  margin-top: 3%;
+}
+
+@media only screen and (max-width: 600px) and (max-height: 844px) {
+  .commenProperties {
+    color: #e5e7eb;
+  }
+
+  .ContactTitle {
+    margin-top: 1vh;
+    min-height: 5vh;
+    text-decoration-line: underline;
+  }
+
+  .shortFiledsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .shortFiledsContainer .MuiTextField-root {
+    padding: 1%;
+    width: 100%;
+  }
+
+  .messageTextConatiner {
+    padding: 1%;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5%;
+  }
+
+  .messageTextConatiner .MuiTextField-root {
+    width: 100%;
+  }
+
+  .submitButtonContainer {
+    padding: 1%;
+    margin-top: 4%;
+  }
+  .shortfieldssContainer .MuiTextField-root {
+    margin-bottom: 5%;
+  }
+}

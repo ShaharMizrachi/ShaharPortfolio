@@ -1,0 +1,17 @@
+.background {
+  background-color: #111827;
+  height: 190rem;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: fit-content;
+}
+
+@media only screen and (max-width: 600px) and (max-height: 844px) {
+  .background {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

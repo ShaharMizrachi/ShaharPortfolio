@@ -57,28 +57,30 @@ const LogInPage = () => {
             {passApprove ? <AdminDashboard /> :
                 <div className='loginContainer'>
                     <div className='loginFileds'>
-                        <CustomTextField
-                            required
-                            id="outlined-required"
-                            label="User"
-                            name="user"
-                            value={loginValues.user}
-                            onChange={handleInputChange}
-                            error={errorLoginValues['userError']}
-                            helperText={errorLoginValues['userError'] ? 'Invalid user name ' : ''}
-                        />
-
-                        <CustomTextField
-                            required
-                            id="outlined-required"
-                            label="Password"
-                            name="password"
-                            value={loginValues.password}
-                            onChange={handleInputChange}
-                            error={errorLoginValues['passwordError']}
-                            helperText={errorLoginValues['passwordError'] ? 'Invalid password' : ''}
-                        />
-
+                        <div className='CustomTextFieldClass'>
+                            <CustomTextField
+                                required
+                                id="outlined-required"
+                                label="User"
+                                name="user"
+                                value={loginValues.user}
+                                onChange={handleInputChange}
+                                error={errorLoginValues['userError']}
+                                helperText={errorLoginValues['userError'] ? 'Invalid user name ' : ''}
+                            />
+                        </div>
+                        <div className='CustomTextFieldClass'>
+                            <CustomTextField
+                                required
+                                id="outlined-required"
+                                label="Password"
+                                name="password"
+                                value={loginValues.password}
+                                onChange={handleInputChange}
+                                error={errorLoginValues['passwordError']}
+                                helperText={errorLoginValues['passwordError'] ? 'Invalid password' : ''}
+                            />
+                        </div>
                     </div>
                     <div className='onClickLogin'>
                         <GlowingButton onClickLogin={LogInHandle} />

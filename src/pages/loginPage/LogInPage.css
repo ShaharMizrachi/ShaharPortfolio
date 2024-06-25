@@ -1,17 +1,28 @@
 .loginContainer {
   display: flex;
-  margin-top: 20%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #1e293b;
   border: solid 2px #73cdc2;
   border-radius: 20%;
   padding: 10%;
-  height: 7%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 30vh;
+  width: 13vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .loginFields {
   display: flex;
   flex-direction: column;
+}
+
+.CustomTextFieldClass {
+  margin-top: 10%;
+}
+.onClickLogin {
+  margin-top: 40%;
 }

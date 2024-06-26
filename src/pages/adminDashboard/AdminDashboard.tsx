@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LineChart } from '@mui/x-charts/LineChart';
-
+import './AdminDashboard.css'
 const AdminDashboard = () => {
 
     const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
@@ -16,41 +16,20 @@ const AdminDashboard = () => {
     ];
 
     return (
-        <div>
+        <div className='test'>
             <LineChart
                 width={500}
                 height={300}
                 series={[
-                    {
-                        data: pData,
-                        label: 'pv',
-                        color: '#73cdc2', // Custom color for the pv series
-                    },
-                    {
-                        data: uData,
-                        label: 'uv',
-                        color: '#ff7f50', // Custom color for the uv series
-                    },
+                    { data: pData, label: 'pv', yAxisKey: 'leftAxisId' },
+
                 ]}
-                xAxis={[
-                    {
-                        scaleType: 'point',
-                        data: xLabels,
-                        axisLineColor: '#ffffff', // Axis line color
-                        tickLabelColor: '#ffffff', // Tick label color
-                    }
-                ]}
-                yAxis={{
-                    axisLineColor: '#ffffff', // Axis line color
-                    tickLabelColor: '#ffffff', // Tick label color
-                }}
-                chartTitle={{
-                    text: 'User Data Over Time',
-                    style: { fill: '#ffffff' } // Title color
-                }}
-                gridLineColor="#444" // Grid line color
+                xAxis={[{ scaleType: 'point', data: xLabels }]}
+                yAxis={[{ id: 'leftAxisId' }, { id: 'rightAxisId' }]}
+                rightAxis="rightAxisId"
             />
         </div>
+
     );
 }
 

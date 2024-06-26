@@ -37,6 +37,9 @@ const countToDb = async () => {
 
             });
             const localTime = formatter.format(date);
+            if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
+                throw new Error("Running in local mode, database update skipped.");
+
             const response = await postData('/visitorCount', { VisitorId: userIdentifier, VisitorDate: localTime });
             console.log('Visitor counted:', response);
             console.log('userIdentifier:', userIdentifier)

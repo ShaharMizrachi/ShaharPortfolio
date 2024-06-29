@@ -7,8 +7,17 @@
 } */
 
 .css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-line {
+  stroke: rgb(56 201 17 / 87%) !important;
 }
 
 .test {
   background-color: brown;
+}
+
+.css-1k2u9zb-MuiChartsAxis-root .MuiChartsAxis-tickLabel {
+  fill: rgb(22 199 83 / 87%) !important;
+}
+
+style attribute {
+  fill: rgb(217, 240, 9) !important;
 }

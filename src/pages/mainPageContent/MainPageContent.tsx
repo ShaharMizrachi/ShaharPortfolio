@@ -47,7 +47,7 @@ const MainPageContent = () => {
     ];
 
     const textToType = useMemo(() => [
-        "Welcome to my portfolio! As a full stack developer with 1.5 years of experience,",
+        "Welcome to my portfolio! As a full stack developer with 2 years of experience,",
         "I've built this website using React and TypeScript. Currently seeking new job opportunities,",
         "I'm eager to join a dynamic team where I can contribute my skills and expertise.",
         "With a strong work ethic, motivation, and excellent interpersonal skills honed throughout my professional journey,",
